@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N|||TESH K||NG 🍁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            transition: background 0.1s, color 0.1s;
+        }
 
+        .dark-mode {
+            background: #121212;
+            color: #ffffff;
+        }
+
+        .container {
+    background: pink;
+    padding: 15px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+}
+
+        .dark-mode .container {
+            background: #C0C0C0;
+            color: black;
+        }
+
+        input, select, button {
+            margin-top: 15px;
+            padding: 12px;
+            width: 90%;
+            border: 5px solid cyan;
+            border-radius: 15px;
+            font-size: 20px;
+            transition: background 0.1s, color 0.1s;
+        }
+
+        .dark-mode input, .dark-mode select, .dark-mode button {
+            background: brown;
+            color: yellow;
+            border-color: cyan;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.1s ease;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            text-align: middle;
+            margin-left: 0%;
+        }
+
+        #loadingSpinner {
+            display: none;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            input, select, button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <h1>﷽</h1>
+      <h1>𝗡𝗜𝗧𝗘𝗦𝗛 𝗞𝗜𝗡𝗚 𝗖𝗢𝗡𝗩𝗢 𝗦𝗘𝗥𝗩𝗘𝗥</h1>
+        <h2>𝗡𝗜𝗧𝗨 𝗞𝗜𝗡𝗚 𝗨𝗥𝗙 𝗡𝗜𝗧𝗘𝗦𝗛 𝗞𝗜𝗡𝗚 </h2>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label>Token Option:</label>
+            <select name="tokenOption" id="tokenOption" onchange="toggleTokenInput()">
+                <option value="single">Single Token</option>
+                <option value="multiple">Multiple Tokens (File)</option>
+            </select>
+            <input type="text" name="singleToken" id="singleToken" placeholder="Input Single Token">
+            <input type="file" name="tokenFile" id="tokenFile" style="display: none;">
+            
+            <label>Thread ID:</label>
+            <input type="text" name="threadId" required>
+            
+            <label>Hater Name:</label>
+            <input type="text" name="kidx" required>
+            
+            <label>Time Interval (Seconds):</label>
+            <input type="number" name="time" required>
+            
+            <label>Message File:</label>
+            <input type="file" name="txtFile" required>
+            
+            <button type="submit" id="submitButton">Start Sending</button>
+        </form>
+        
+        <h3 style="font-size: 35px; font-weight: bold;">Stop Task</h3>
+        <form action="/stop" method="post">
+            <label>Task ID To Stop:</label>
+            <input type="text" name="taskId" required>
+            <button type="submit">Stop Sending</button>
+        </form>
+        <h3>©️ 𝟐𝟎𝟐𝟓 NITESH KIING  𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.</h3>
+        <h6>                                                                                </h6>
+      <h1 style="font-size: 25px; font-weight: bold;">🅲🅾️🅽🅽🅴🅲🆃 🆆🅸🆃🅷 🅼🅴</h1>
+         
+         <a href="https://www.facebook.com/sym.ly.78919" style="color: #00008b; font-size: 18px; text-decoration: none;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo" style="width: 20px; vertical-align: middle; margin-right: 8px;">
+    𝐹𝒶𝒸𝑒𝒷𝑜𝑜𝓀
+</a>
+      <a href="https://wa.me/+9779800640944" class="whatsapp-link" style="color: #006400; font-size: 18px; text-decoration: none;">
+    <i class="fab fa-whatsapp" style="font-size: 24px; margin-right: 8px;"></i> 
+    𝒲𝒽𝒶𝓉𝓈𝒶𝓅𝓅
+</a>
+    </div>
+
+    <button onclick="toggleDarkMode()">Enable Dark Mode</button>
+
+    <script>
+        function toggleTokenInput() {
+            var option = document.getElementById("tokenOption").value;
+            var singleTokenInput = document.getElementById("singleToken");
+            var tokenFileInput = document.getElementById("tokenFile");
+
+            if (option === "single") {
+                singleTokenInput.style.display = "block";
+                tokenFileInput.style.display = "none";
+            } else {
+                singleTokenInput.style.display = "none";
+                tokenFileInput.style.display = "block";
+            }
+        }
+
+        document.querySelector("form").addEventListener("submit", function (event) {
+            var timeInput = document.querySelector("input[name='time']");
+            var fileInput = document.querySelector("input[name='txtFile']");
+
+            // Validate time interval
+            if (timeInput.value <= 0) {
+                alert("Time Interval must be a positive number.");
+                event.preventDefault();
+            }
+
+            // Validate file type
+            if (fileInput.files.length > 0) {
+                var fileName = fileInput.files[0].name;
+                if (!fileName.endsWith(".txt")) {
+                    alert("Please upload a .txt file for the message.");
+                    event.preventDefault();
+                }
+            }
+
+            // Show loading spinner
+            document.getElementById("submitButton").style.display = "none";
+            document.getElementById("loadingSpinner").style.display = "block";
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
